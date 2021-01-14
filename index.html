@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <img src="" alt="" class="logo">
+        <title>
+            <h1>Daily Journal</h1>
+        </title>
+        <section class="navbar">
+
+        </section>
+
+    </header>
+    <main>
+        <!-- contain new entry form and past entry log here -->
+        <article class="newJorunal">
+            <h2>Daily Journal</h2>
+            <form action="">
+                <fieldset>
+                    <label for="journalDate">Date of Entry:</label>
+                    <input type="date" name="journalDate" id="journalDate">
+                </fieldset>
+                <fieldset>  
+                    <label for="journalTitle">Title:</label>
+                    <input type="text" name="journalTitle" id="journalTitle">
+                </fieldset>  
+                <fieldset>
+                    <label for="journalConcepts">Concepts:</label>
+                    <input type="text" name="journalConcepts" id="journalConcepts">
+                </fieldset>
+                <fieldset>
+                    <label for="journalEntry">Journal Entry:</label>
+                    <textarea rows="4" name="jorunalEntry" id="jorunalEntry"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="journalMood">Mood:</label>
+                    <select type="journalMood" name="journalMood" id="journalMood">
+                        <option value="Fine">Fine</option>
+                        <option value="Excited">Excited</option>
+                        <option value="Proud">Proud</option>
+                        <option value="Determined">Determined</option>
+                        <option value="Overwhelmed">Overwhelmed</option>
+                        <option value="Frusturated">Frusturated</option>
+                    </select>
+                </fieldset>
+                
+                
+                <input type="submit" value="Record Journal Entry" name="journalButton" id="journalButton">
+                
+                
+            </form>
+        
+        </article>
+        <article class="pastEntries">
+            <h2>Past Entries</h2>
+            <div>
+                <p>(Title of past Entry)</p>
+                <p>(concepts)</p>
+                <p>(date)</p>
+                <p>(mood)</p>
+                <!-- Delete/Edit Buttons here -->
+            </div>
+
+        </article>
+    </main>
+    <footer class="footer">
+
+    </footer>
+    
+</body>
+</html>

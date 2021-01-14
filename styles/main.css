@@ -1,0 +1,8 @@
+/* *{
+    border: 1px solid firebrick
+} */
+
+.newJournal form {
+    display: flex;
+    flex-direction: column;
+}
