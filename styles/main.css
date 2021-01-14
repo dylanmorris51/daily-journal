@@ -2,9 +2,21 @@
     border: 1px solid firebrick
 } */
 
-.newJournal form {
+/* main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+} */
+
+fieldset {
     display: flex;
     flex-direction: column;
 }
 
-/* main fix */
+#journalButton {
+    text-align: center;
+}
+
+#submitButton {
+    text-align: right;
+}
