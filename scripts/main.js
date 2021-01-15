@@ -1,3 +1,9 @@
 import { useJournalEntries } from './JournalDataProvider.js'
+import { EntryListComponent } from './JournalEntryList.js'
 
-useJournalEntries()
+
+const allTheEntries = useJournalEntries()
+console.log("The Entries:", allTheEntries)
+
+const seeList = EntryListComponent()
+console.log("See The List:", seeList)
