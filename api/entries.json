@@ -41,6 +41,20 @@
       "entry": "Let's try the button again",
       "mood": "Fine",
       "id": 6
+    },
+    {
+      "date": "",
+      "concept": "saving entries",
+      "entry": "testing concepts",
+      "mood": "Fine",
+      "id": 7
+    },
+    {
+      "date": "2021-02-01",
+      "concept": "Debugging",
+      "entry": "Learned about the \"debugger\" tool and how helpful it can be.\n\nThe way to use it is to insert it into bode blocks that to see if they are executing they way you expect them too. You also use it to see the values of the data they are running. \n\nI was able to use it to figure out why my entries weren't rendering to the DOM. The reason is that I had a typo in my input fields where I spelled the id of journal as \"jorunal\" so no data was coming through.\n\nI also had my useJournalEntries function returning undefined because I had written one of my .then functions incorrectly The logic was sound by the syntax was broken.",
+      "mood": "Fine",
+      "id": 8
     }
   ]
 }

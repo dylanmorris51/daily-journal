@@ -14,17 +14,13 @@ const render = () => {
         <label for="journalDate">Date of Entry:</label>
         <input type="date" name="journalDate" id="journalDate">
     <!-- </fieldset> -->
-    <!-- <fieldset>   -->
-        <label for="journalTitle">Title:</label>
-        <input type="text" name="journalTitle" id="journalTitle">
-    <!-- </fieldset>   -->
     <!-- <fieldset> -->
         <label for="journalConcepts">Concepts:</label>
         <input type="text" name="journalConcepts" id="journalConcepts">
     <!-- </fieldset> -->
     <!-- <fieldset> -->
         <label for="journalEntry">Journal Entry:</label>
-        <textarea rows="4" name="jorunalEntry" id="jorunalEntry"></textarea>
+        <textarea rows="4" name="journalEntry" id="journalEntry"></textarea>
     <!-- </fieldset> -->
     <!-- <fieldset> -->
         <label for="journalMood">Mood:</label>
