@@ -1,5 +1,6 @@
 import { useJournalEntries, getEntries } from './JournalDataProvider.js'
 import { EntryListComponent } from './JournalEntryList.js'
+import { JournalForm } from './JournalForm.js'
 
 
 const allTheEntries = useJournalEntries()
@@ -9,3 +10,4 @@ const seeList = EntryListComponent()
 console.log("See The List:", seeList)
 
 getEntries()
+JournalForm()
