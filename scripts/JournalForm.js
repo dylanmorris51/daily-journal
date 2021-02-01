@@ -1,3 +1,5 @@
+import { saveJournalEntry } from "./JournalDataProvider.js"
+
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".newJournal")
 
@@ -12,17 +14,13 @@ const render = () => {
         <label for="journalDate">Date of Entry:</label>
         <input type="date" name="journalDate" id="journalDate">
     <!-- </fieldset> -->
-    <!-- <fieldset>   -->
-        <label for="journalTitle">Title:</label>
-        <input type="text" name="journalTitle" id="journalTitle">
-    <!-- </fieldset>   -->
     <!-- <fieldset> -->
         <label for="journalConcepts">Concepts:</label>
         <input type="text" name="journalConcepts" id="journalConcepts">
     <!-- </fieldset> -->
     <!-- <fieldset> -->
         <label for="journalEntry">Journal Entry:</label>
-        <textarea rows="4" name="jorunalEntry" id="jorunalEntry"></textarea>
+        <textarea rows="4" name="journalEntry" id="journalEntry"></textarea>
     <!-- </fieldset> -->
     <!-- <fieldset> -->
         <label for="journalMood">Mood:</label>
@@ -49,3 +47,24 @@ const render = () => {
 export const JournalForm = () => {
     render()
 }
+
+eventHub.addEventListener("click", event => {
+    event.preventDefault()
+    
+    if (event.target.id === "journalButton") {
+        const date = document.querySelector("#journalDate").value
+        const concept = document.querySelector("#journalConcepts").value
+        const entry = document.querySelector("#journalEntry").value
+        const mood = document.querySelector("#journalMood").value
+        
+        const newEntry = {
+                "date": date,
+                "concept": concept,
+                "entry": entry,
+                "mood": mood,
+            }
+            saveJournalEntry(newEntry)
+    }
+    
+
+})
