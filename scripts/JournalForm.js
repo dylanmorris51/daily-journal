@@ -1,4 +1,4 @@
-import { saveJournalEntry } from "./JournalDataProvider"
+import { saveJournalEntry } from "./JournalDataProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".newJournal")
@@ -53,20 +53,22 @@ export const JournalForm = () => {
 }
 
 eventHub.addEventListener("click", event => {
-    if (event.target.id === "submitButton")
-    const date = document.querySelector("#journalDate").value
-    const concept = document.querySelector("#journalConcepts").value
-    const entry = document.querySelector("#jorunalEntry").value
-    const mood = document.querySelector("journalMood").value
+    event.preventDefault()
     
-    const customEvent = new CustomEvent("SaveEntry", {
-        detail: {
-            "date": date,
-            "concept": concept,
-            "entry": entry,
-            "mood": mood,
-        }
-    })
-    saveJournalEntry()
+    if (event.target.id === "journalButton") {
+        const date = document.querySelector("#journalDate").value
+        const concept = document.querySelector("#journalConcepts").value
+        const entry = document.querySelector("#journalEntry").value
+        const mood = document.querySelector("#journalMood").value
+        
+        const newEntry = {
+                "date": date,
+                "concept": concept,
+                "entry": entry,
+                "mood": mood,
+            }
+            saveJournalEntry(newEntry)
+    }
+    
 
 })

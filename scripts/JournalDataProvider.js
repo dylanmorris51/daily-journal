@@ -1,4 +1,4 @@
-const journal = []
+let journal = []
 const eventHub = document.querySelector(".container")
 export const useJournalEntries = () => {
     const sortedByDate = journal.sort(
@@ -13,7 +13,7 @@ export const getEntries = () => {
         .then(() => {
             response => response.json()
         })
-        .then(() => {
+        .then(parsedResponse => {
             journal = parsedResponse
         })
 }
@@ -22,7 +22,7 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
 }
 
-export const saveJournalEntry = () => {
+export const saveJournalEntry = newJournalEntry => {
     fetch("http://localhost:8088/entries", {
         method: "POST",
         headers: {
