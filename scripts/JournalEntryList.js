@@ -38,6 +38,10 @@ eventHub.addEventListener("deleteClicked", clickEvent => {
     const entryId = clickEvent.detail.entryId
         // Find the entry id and replace notes calls with journal calls
         DeletePastEntry(entryId)
+        .then(getEntries)
+        .then( () => {
+            entryLog.innerHTML = ""
+        })
         .then(EntryListComponent)
             
         
