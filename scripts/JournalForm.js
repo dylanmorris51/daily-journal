@@ -1,10 +1,14 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from './MoodProvider.js'
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".newJournal")
 
 
-const render = () => {
+
+const render = (moods) => {
+
+
     contentTarget.innerHTML = `
     <h2>Daily Journal</h2>
     <section class="journalFormInput">
@@ -25,12 +29,9 @@ const render = () => {
     <!-- <fieldset> -->
         <label for="journalMood">Mood:</label>
         <select type="journalMood" name="journalMood" id="journalMood">
-            <option value="Fine">Fine</option>
-            <option value="Excited">Excited</option>
-            <option value="Proud">Proud</option>
-            <option value="Determined">Determined</option>
-            <option value="Overwhelmed">Overwhelmed</option>
-            <option value="Frusturated">Frusturated</option>
+            ${moods.map(mood => {
+                return `<option value="${mood.id}">${mood.label}</option>`
+            })}
         </select>
     <!-- </fieldset> -->
     <!-- </fieldset> -->
@@ -45,7 +46,14 @@ const render = () => {
 }
 
 export const JournalForm = () => {
-    render()
+    getMoods()
+        .then(useMoods)
+        .then(() => {
+            const moodsArray = useMoods()
+            
+
+            render(moodsArray)
+        })
 }
 
 eventHub.addEventListener("click", event => {
