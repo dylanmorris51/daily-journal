@@ -5,7 +5,7 @@ export const JournalEntryComponent = (entry) => {
             <div class="pastEntry__top">
                 <div class="entry__date past__block">${entry.date}</div>
                 <div class="entry__concepts past__block">${entry.concept}</div>
-                <div class="entry__mood past__block">${entry.mood}</div>
+                <div class="entry__mood past__block">${entry.mood.label}</div>
             </div>
             <div class="entry__entry">${entry.entry}</div>
             <div class="entry__actions">
