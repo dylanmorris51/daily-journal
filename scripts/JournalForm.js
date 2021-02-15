@@ -30,7 +30,7 @@ const render = (moods) => {
         <label for="journalMood">Mood:</label>
         <select type="journalMood" name="journalMood" id="journalMood">
             ${moods.map(mood => {
-                return `<option value="${mood.id}">${mood.label}</option>`
+                return `<option id="mood--${mood.id}" value="${mood.id}">${mood.label}</option>`
             })}
         </select>
     <!-- </fieldset> -->
@@ -56,6 +56,23 @@ export const JournalForm = () => {
         })
 }
 
+// Mood select listener
+let suffix
+eventHub.addEventListener("change", changeEvent => {
+    
+    if(changeEvent.target.id === "journalMood"){
+        suffix = changeEvent.target.value
+
+        const customEvent = new CustomEvent("moodSelected", {
+            detail: {
+                selectedMood: suffix
+            }
+        })
+        console.log('customEvent: ', suffix);
+        eventHub.dispatchEvent(customEvent)
+    }
+})
+
 eventHub.addEventListener("click", event => {
     event.preventDefault()
     
@@ -63,13 +80,16 @@ eventHub.addEventListener("click", event => {
         const date = document.querySelector("#journalDate").value
         const concept = document.querySelector("#journalConcepts").value
         const entry = document.querySelector("#journalEntry").value
-        const mood = document.querySelector("#journalMood").value
+        // const mood = document.querySelector("#journalMood").value
+        const mood = suffix
+        console.log('mood post suffix: ', mood);
+
         
         const newEntry = {
                 "date": date,
                 "concept": concept,
                 "entry": entry,
-                "mood": mood,
+                "moodId": mood,
             }
             saveJournalEntry(newEntry)
     }
