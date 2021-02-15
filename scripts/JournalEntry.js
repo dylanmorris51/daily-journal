@@ -1,3 +1,5 @@
+const eventHub = document.querySelector(".container")
+
 export const JournalEntryComponent = (entry) => {
     return `
         <section id="entry--${entry.id}" class="journalEntry">
@@ -10,9 +12,25 @@ export const JournalEntryComponent = (entry) => {
             <div class="entry__entry">${entry.entry}</div>
             <div class="entry__actions">
                 <input type="submit" value="Edit" class="entry__edit">
-                <input type="submit" value="Delete" class="entry__delete">
+                <button value="deleteEntry--${entry.id}" id="deleteEntry--${entry.id}">Delete</button>
             </div>
             <hr>
         </section>    
         `
 }
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id.startsWith("deleteEntry--")){
+        const [prefix, suffix] = event.target.id.split("--")
+        
+        console.log("suffix: ", suffix)
+        const customEvent = new CustomEvent("deleteClicked", {
+            detail: {
+                entryId: suffix
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+    }
+    
+})
+
