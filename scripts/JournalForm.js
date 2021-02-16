@@ -75,9 +75,9 @@ eventHub.addEventListener("change", changeEvent => {
 })
 
 eventHub.addEventListener("click", event => {
-    event.preventDefault()
     
     if (event.target.id === "journalButton") {
+        event.preventDefault()
         const date = document.querySelector("#journalDate").value
         const concept = document.querySelector("#journalConcepts").value
         const entry = document.querySelector("#journalEntry").value
