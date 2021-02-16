@@ -3,7 +3,7 @@ const eventHub = document.querySelector(".container")
 export const JournalEntryComponent = (entry) => {
     return `
         <section id="entry--${entry.id}" class="journalEntry">
-            <hr>
+            
             <div class="pastEntry__top">
                 <div class="entry__date past__block">${entry.date}</div>
                 <div class="entry__concepts past__block">${entry.concept}</div>
