@@ -46,3 +46,35 @@ eventHub.addEventListener("deleteClicked", clickEvent => {
             
         
 })
+
+
+//Listener reacting to the mood filter radio buttons
+// ! Filtering as expected, but unable to revert page without refreshing
+
+eventHub.addEventListener("moodChosen", event=> {
+    const moodId = event.detail.moodChosen
+    
+    getEntries()
+        .then(() => {
+            const allEntries = useJournalEntries()
+            const filteredEntries = allEntries.filter(entry => entry.moodId === moodId)
+            
+            entryLog.innerHTML = ""
+            const render = selectedMood => {
+                
+                let journalHTMLRepresentations = ""
+            for (const entry of selectedMood) {
+                journalHTMLRepresentations += JournalEntryComponent(entry)
+        
+            }
+        
+            entryLog.innerHTML += ` 
+                <section class="recordedEntries">
+                    ${journalHTMLRepresentations}
+                </section>
+                `
+            }
+            render(filteredEntries)
+        })
+
+})
