@@ -29,5 +29,13 @@ eventHub.addEventListener("click", event => {
         const [prefix, suffix] = event.target.id.split("--")
         console.log('suffix: ', suffix);
         
+        const customEvent = new CustomEvent("moodChosen", {
+            detail: {
+                moodChosen: suffix
+            }
+        })
+        eventHub.dispatchEvent(customEvent)
+        console.log('Mood Filter Click Event Dispatched: ', customEvent);
+
     }
 })
