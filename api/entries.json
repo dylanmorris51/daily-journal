@@ -76,6 +76,41 @@
       "entry": "cleared the cache. tags getting checked but not saved",
       "moodId": 3,
       "id": 26
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "join tables",
+      "entry": "working on fetching and checking data for join tables by checking if tags exist",
+      "moodId": 3,
+      "id": 27
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "placeholder",
+      "entry": "blah blah blah ",
+      "moodId": 4,
+      "id": 28
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "placeholder",
+      "entry": "blah blah blah ",
+      "moodId": 4,
+      "id": 29
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "join tables",
+      "entry": "too much data",
+      "moodId": 4,
+      "id": 30
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "join tables",
+      "entry": "too much data",
+      "moodId": 4,
+      "id": 31
     }
   ],
   "moods": [
@@ -116,6 +151,14 @@
     {
       "subject": "components",
       "id": 5
+    },
+    {
+      "subject": "data",
+      "id": 6
+    },
+    {
+      "subject": "join-tables",
+      "id": 7
     }
   ],
   "entryTags": [
@@ -128,6 +171,12 @@
       "entryId": 17,
       "tagId": 3,
       "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
     }
   ]
 }

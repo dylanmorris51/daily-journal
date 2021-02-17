@@ -1,3 +1,6 @@
+import { findTag, saveTag, saveEntryTag } from './TagProvider.js'
+
+
 let journal = []
 const eventHub = document.querySelector(".container")
 
@@ -44,9 +47,11 @@ export const saveJournalEntry = (newJournalEntry, arrayOfTags) => {
 
 
             arrayOfTags.forEach(tag => {
+                // debugger
 
                 findTag(tag)
                     .then(matches => { // 'matches' looks for and returns an object from the json file if it's "subject" property matches the tag entered by user
+                        console.log("matches flag", matches)
                         let matchingTag = null
 
                         // checks to see if something was returned. If so, get the id value of the returned object and store it in matchingTag
@@ -71,10 +76,11 @@ export const saveJournalEntry = (newJournalEntry, arrayOfTags) => {
                         }
                     })
             })
-            .then(getEntries)
-            .then(dispatchStateChangeEvent)
-    })
+        })
+        .then(getEntries)
+        .then(dispatchStateChangeEvent)
 }
+// ! test and debug ^^
 
 // Deletes past entry from database
 export const DeletePastEntry = entryId => {
