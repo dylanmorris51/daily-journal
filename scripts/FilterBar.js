@@ -24,10 +24,10 @@ export const FilterBar = () => {
 }
 
 eventHub.addEventListener("click", event => {
-    console.log("event flag", event)
+    
     if (event.target.name === "moodButton") {
         const [prefix, suffix] = event.target.id.split("--")
-        console.log('suffix: ', suffix);
+        
         
         const customEvent = new CustomEvent("moodChosen", {
             detail: {
@@ -35,7 +35,7 @@ eventHub.addEventListener("click", event => {
             }
         })
         eventHub.dispatchEvent(customEvent)
-        console.log('Mood Filter Click Event Dispatched: ', customEvent);
+        
 
     }
 })

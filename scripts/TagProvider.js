@@ -39,13 +39,19 @@ export const saveTag = (tag) => {
 
 // save a new entry to the join table of relationships between tags and entries
 export const saveEntryTag = (entry, tag) => {
+    
+    const newEntryObj = {}
+    newEntryObj.entryId = entry.id
+    newEntryObj.tagId = tag.id
+    
+    console.log('newEntryObj: ', newEntryObj);
+    
+    
     fetch("http://localhost:8088/entryTags", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(tag)
+        body: JSON.stringify(newEntryObj)
     })
-    .then(getTags)
-    .then(dispatchStateChangeEvent)
 }
