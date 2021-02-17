@@ -33,6 +33,9 @@ const render = (moods) => {
                 return `<option id="mood--${mood.id}" value="${mood.id}">${mood.label}</option>`
             })}
         </select>
+        <label for="tags">Tags:</label>
+        <input type="text" placeholder="(separate by commas)" name="tags" id="tags">
+
     <!-- </fieldset> -->
     <!-- </fieldset> -->
     

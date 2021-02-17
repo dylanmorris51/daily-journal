@@ -53,5 +53,43 @@
       "label": "Overwhelmed",
       "id": 4
     }
+  ],
+  "tags": [
+    {
+      "subject": "HTML",
+      "id": 1
+    },
+    {
+      "subject": "CSS",
+      "id": 2
+    },
+    {
+      "subject": "JavaScript",
+      "id": 3
+    },
+    {
+      "subject": "JSON",
+      "id": 4
+    },
+    {
+      "subject": "Components",
+      "id": 5
+    },
+    {
+      "subject": "Fetch",
+      "id": 6
+    }
+  ],
+  "entryTags": [
+    {
+      "entryId": 16,
+      "tagId": 6,
+      "id": 1
+    },
+    {
+      "entryId": 17,
+      "tagId": 3,
+      "id": 2
+    }
   ]
 }
