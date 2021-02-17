@@ -4,50 +4,78 @@
       "date": "2021-02-15",
       "concept": "test",
       "entry": "Let's try again and see what happens",
-      "moodId": "2",
+      "moodId": 2,
       "id": 16
     },
     {
       "date": "2021-02-16",
       "concept": "Event Listeners",
       "entry": "They capture stuff from the dom and send info to other components",
-      "moodId": "3",
+      "moodId": 2,
       "id": 17
     },
     {
       "date": "2021-02-16",
       "concept": "Debugger",
       "entry": "The debugger is useful but you have to know where to inset it. \n\nI just debugged code by inserting it in my MoodFilter.js to notice that my return statement wasn't returning code because the code was unreachable",
-      "moodId": "2",
+      "moodId": 2,
       "id": 18
     },
     {
       "date": "2021-02-16",
       "concept": "Asking For Help",
       "entry": "In my previous group project I got really frustrated because I spent several days working on the weather feature. \n\nI learned that asking for help is good. Timebox working on a feature to no more than 30minutes at a time and then ask for help.",
-      "moodId": "4",
+      "moodId": 4,
       "id": 19
     },
     {
       "date": "2021-02-16",
       "concept": "Deleting",
       "entry": "We learned the delete method in fetch calls to delete entries from a database by targeting their id",
-      "moodId": "1",
+      "moodId": 1,
       "id": 20
     },
     {
       "date": "2021-02-17",
       "concept": "tags",
       "entry": "Learning how to build a tag feature on the journals",
-      "moodId": "4",
+      "moodId": 4,
       "id": 21
     },
     {
       "date": "2021-02-17",
       "concept": "tags",
       "entry": "Figuring out how to post to a many to many relationship",
-      "moodId": "4",
+      "moodId": 4,
       "id": 22
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "tags",
+      "entry": "Still working on saving entries with tags and loading those tags into the data base. Testing now by adding one previously existing tag and two new ones",
+      "moodId": 3,
+      "id": 23
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "Parse Int",
+      "entry": "Aja helped me fix my ids ",
+      "moodId": 2,
+      "id": 24
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "database",
+      "entry": "talking about lots of .thens chained together",
+      "moodId": 1,
+      "id": 25
+    },
+    {
+      "date": "2021-02-17",
+      "concept": "debugging",
+      "entry": "cleared the cache. tags getting checked but not saved",
+      "moodId": 3,
+      "id": 26
     }
   ],
   "moods": [
@@ -88,10 +116,6 @@
     {
       "subject": "components",
       "id": 5
-    },
-    {
-      "subject": "fetch",
-      "id": 6
     }
   ],
   "entryTags": [

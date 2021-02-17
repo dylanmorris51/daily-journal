@@ -16,7 +16,7 @@ export const useTags = () => tags.slice()
 
 
 // Check if tag exists in database
-export const findTag = subject => {
+export const findTag = (subject) => {
     return fetch(`http://localhost:8088/tags?subject=${subject}`)
         .then(response => response.json())
         
@@ -26,12 +26,13 @@ export const findTag = subject => {
 
 // Save a new tag to the tag database
 export const saveTag = (tag) => {
-    fetch("http://localhost:8088/tags", {
+    return fetch("http://localhost:8088/tags", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(tag)
+        // .then(response => response.json())
     })
 }
 

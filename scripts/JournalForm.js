@@ -1,4 +1,4 @@
-import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getEntries, saveJournalEntry, useJournalEntries } from "./JournalDataProvider.js"
 import { getMoods, useMoods } from './MoodProvider.js'
 import { findTag, saveEntryTag, saveTag } from "./TagProvider.js"
 
@@ -62,24 +62,24 @@ export const JournalForm = () => {
         })
 }
 
-// Mood select listener
-let suffix
-eventHub.addEventListener("change", changeEvent => {
+// Mood select listener // ! May not be needed
+// let suffix
+// eventHub.addEventListener("change", changeEvent => {
     
-    if(changeEvent.target.id === "journalMood"){
-        suffix = changeEvent.target.value
+//     if(changeEvent.target.id === "journalMood"){
+//         suffix = changeEvent.target.value
 
-        const customEvent = new CustomEvent("moodSelected", {
-            detail: {
-                selectedMood: suffix
-            }
-        })
-        console.log('customEvent: ', suffix);
-        eventHub.dispatchEvent(customEvent)
-    }
-})
+//         const customEvent = new CustomEvent("moodSelected", {
+//             detail: {
+//                 selectedMood: suffix
+//             }
+//         })
+//         console.log('customEvent: ', suffix);
+//         eventHub.dispatchEvent(customEvent)
+//     }
+// })
 
-// Post data to json
+// Post entry data to json
 eventHub.addEventListener("click", event => {
     
     if (event.target.id === "journalButton") {
@@ -87,61 +87,34 @@ eventHub.addEventListener("click", event => {
         const date = document.querySelector("#journalDate").value
         const concept = document.querySelector("#journalConcepts").value
         const entry = document.querySelector("#journalEntry").value
-        // const mood = document.querySelector("#journalMood").value
-        const mood = suffix
-        console.log('mood post suffix: ', mood);
-
+        const mood = parseInt(document.querySelector("#journalMood").value)
+        
+        const tagsArray = (document.querySelector("#tags").value).split(",")
         
         const newEntry = {
-                "date": date,
-                "concept": concept,
-                "entry": entry,
-                "moodId": mood,
-            }
-            saveJournalEntry(newEntry)
+            "date": date,
+            "concept": concept,
+            "entry": entry,
+            "moodId": mood,
+        }
+        saveJournalEntry(newEntry, tagsArray)
+        
     }
     
-
+    
 })
+
+
 
 // Post tags to json
 eventHub.addEventListener("journalStateChanged", event => {
     // separate words into an array
-    const tagsArray = (document.querySelector("#tags").value).split(",")
+    // let newTag
+    // let entriesArray
+    // let previousEntry
     
-    const enterTag = tagsArray.map(tag => {
-        const tagObj = {
-            "subject": tag
-        }
-        findTag(enterTag)
-            .then(matches => { // 'matches' looks for and returns an object from the json file if it's "subject" property matches the tag entered by user
-                let matchingTag = null
-
-                // checks to see if something was returned. If so, get the id value of the returned object and store it in matchingTag
-                if (matches.length > 0) {
-                    matchingTag = matches[0].id
-                }
-
-                // If the tag doesn't already exist, create it and assign it to the join table with a corresponding entryId
-                if (matchingTag === null) {
-                    saveTag(enterTag)
-                        .then(new_tag => {
-                            saveEntryTag(entry.id, matchingTag)
-                            //! Where do I find the current entry?
-                        })
-                }
-
-
-
-
-            })
-
-
-
-
-
-
-
-    })
     
+
+        
 })
+    
