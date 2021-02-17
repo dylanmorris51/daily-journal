@@ -1,10 +1,14 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from './MoodProvider.js'
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".newJournal")
 
 
-const render = () => {
+
+const render = (moods) => {
+
+
     contentTarget.innerHTML = `
     <h2>Daily Journal</h2>
     <section class="journalFormInput">
@@ -25,12 +29,9 @@ const render = () => {
     <!-- <fieldset> -->
         <label for="journalMood">Mood:</label>
         <select type="journalMood" name="journalMood" id="journalMood">
-            <option value="Fine">Fine</option>
-            <option value="Excited">Excited</option>
-            <option value="Proud">Proud</option>
-            <option value="Determined">Determined</option>
-            <option value="Overwhelmed">Overwhelmed</option>
-            <option value="Frusturated">Frusturated</option>
+            ${moods.map(mood => {
+                return `<option id="mood--${mood.id}" value="${mood.id}">${mood.label}</option>`
+            })}
         </select>
     <!-- </fieldset> -->
     <!-- </fieldset> -->
@@ -39,29 +40,57 @@ const render = () => {
         <input type="submit" value="Record Journal Entry" name="journalButton" id="journalButton">
     </div>
     
+    
 </form>
     </section>
     `
 }
 
 export const JournalForm = () => {
-    render()
+    getMoods()
+        .then(useMoods)
+        .then(() => {
+            const moodsArray = useMoods()
+            
+
+            render(moodsArray)
+        })
 }
 
+// Mood select listener
+let suffix
+eventHub.addEventListener("change", changeEvent => {
+    
+    if(changeEvent.target.id === "journalMood"){
+        suffix = changeEvent.target.value
+
+        const customEvent = new CustomEvent("moodSelected", {
+            detail: {
+                selectedMood: suffix
+            }
+        })
+        console.log('customEvent: ', suffix);
+        eventHub.dispatchEvent(customEvent)
+    }
+})
+
 eventHub.addEventListener("click", event => {
-    event.preventDefault()
     
     if (event.target.id === "journalButton") {
+        event.preventDefault()
         const date = document.querySelector("#journalDate").value
         const concept = document.querySelector("#journalConcepts").value
         const entry = document.querySelector("#journalEntry").value
-        const mood = document.querySelector("#journalMood").value
+        // const mood = document.querySelector("#journalMood").value
+        const mood = suffix
+        console.log('mood post suffix: ', mood);
+
         
         const newEntry = {
                 "date": date,
                 "concept": concept,
                 "entry": entry,
-                "mood": mood,
+                "moodId": mood,
             }
             saveJournalEntry(newEntry)
     }

@@ -1,6 +1,8 @@
+import { FilterBar } from './FilterBar.js'
 import { useJournalEntries, getEntries, saveJournalEntry } from './JournalDataProvider.js'
 import { EntryListComponent } from './JournalEntryList.js'
 import { JournalForm } from './JournalForm.js'
+import { getMoods } from './MoodProvider.js'
 
 
 // const allTheEntries = useJournalEntries()
@@ -11,3 +13,7 @@ EntryListComponent()
 
 // getEntries()
 JournalForm()
+
+getMoods()
+FilterBar()
+
