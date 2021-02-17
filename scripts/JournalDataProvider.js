@@ -23,7 +23,7 @@ export const getEntries = () => {
 }
 
 // Reacts for state change event
-const dispatchStateChangeEvent = () => {
+export const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
 }
 

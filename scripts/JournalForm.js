@@ -1,11 +1,12 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
 import { getMoods, useMoods } from './MoodProvider.js'
+import { saveTag } from "./TagProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".newJournal")
 
 
-
+// journal form construction
 const render = (moods) => {
 
 
@@ -49,6 +50,7 @@ const render = (moods) => {
     `
 }
 
+// render journal form to page
 export const JournalForm = () => {
     getMoods()
         .then(useMoods)
@@ -77,6 +79,7 @@ eventHub.addEventListener("change", changeEvent => {
     }
 })
 
+// Post data to json
 eventHub.addEventListener("click", event => {
     
     if (event.target.id === "journalButton") {
@@ -99,4 +102,18 @@ eventHub.addEventListener("click", event => {
     }
     
 
+})
+
+// Post tags to json
+eventHub.addEventListener("journalStateChanged", event => {
+    // separate words into an array
+    const tagsArray = (document.querySelector("#tags").value).split(",")
+    
+    const newTag = tagsArray.map(tag => {
+        const tagObj = {
+            "subject": tag
+        }
+        saveTag(tagObj)
+    })
+    console.log('newTag: ', newTag);
 })
