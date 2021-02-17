@@ -33,8 +33,6 @@ export const saveTag = (tag) => {
         },
         body: JSON.stringify(tag)
     })
-    .then(getTags)
-    .then(dispatchStateChangeEvent)
 }
 
 
